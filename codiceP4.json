@@ -1,0 +1,5160 @@
+{
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp_2", 32, false],
+        ["tmp_3", 16, false],
+        ["tmp_4", 32, false],
+        ["tmp_5", 16, false],
+        ["tmp_6", 32, false],
+        ["tmp_7", 16, false],
+        ["tmp_8", 256, false],
+        ["tmp_10", 32, false],
+        ["tmp_11", 32, false],
+        ["tmp_12", 32, false],
+        ["tmp_13", 32, false],
+        ["tmp_14", 32, false],
+        ["tmp_15", 16, false],
+        ["secret_conn_0", 32, false],
+        ["tmp_ip_0", 32, false],
+        ["tmp_port_0", 16, false],
+        ["tmp_mac_0", 48, false],
+        ["secret_conn_1", 32, false],
+        ["index_0", 32, false],
+        ["index_1", 32, false],
+        ["tmp_hash_0", 256, false],
+        ["curr_0", 256, false],
+        ["segm_total_0", 32, false],
+        ["tmp", 512, false],
+        ["tmp_ip_1", 32, false],
+        ["tmp_port_1", 16, false],
+        ["tmp_mac_1", 48, false],
+        ["curr_1", 256, false],
+        ["existing_0", 512, false],
+        ["index_3", 32, false],
+        ["ip_list_0", 32, false],
+        ["port_list_0", 16, false],
+        ["tmp_0", 1, false],
+        ["tmp_1", 1, false],
+        ["hasReturned_3", 1, false],
+        ["metadata.udp_conn", 1, false],
+        ["metadata.tcp_conn", 1, false],
+        ["_padding_0", 3, false]
+      ]
+    },
+    {
+      "name" : "digest_t",
+      "id" : 1,
+      "fields" : [
+        ["peer_ip", 32, false],
+        ["peer_port", 16, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 2,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["instance_type", 32, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["egress_global_timestamp", 48, false],
+        ["mcast_grp", 16, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["parser_error", 32, false],
+        ["priority", 3, false],
+        ["_padding", 3, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 3,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 4,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "tcp_t",
+      "id" : 5,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["seqNo", 32, false],
+        ["ackNo", 32, false],
+        ["dataOffset", 4, false],
+        ["res", 4, false],
+        ["flags", 8, false],
+        ["window", 16, false],
+        ["checksum", 16, false],
+        ["urgentPtr", 16, false]
+      ]
+    },
+    {
+      "name" : "udp_t",
+      "id" : 6,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["length", 16, false],
+        ["checksum", 16, false]
+      ]
+    },
+    {
+      "name" : "sabre_t",
+      "id" : 7,
+      "fields" : [
+        ["msg_type", 8, false],
+        ["segment_id", 32, false],
+        ["block_hash", 256, false],
+        ["checksum", 32, false],
+        ["segment_data", 512, false],
+        ["secret", 32, false],
+        ["segments_num", 32, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "tmp_9",
+      "id" : 0,
+      "header_type" : "digest_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "d_0",
+      "id" : 1,
+      "header_type" : "digest_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "scalars",
+      "id" : 2,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 3,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 4,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 5,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "tcp",
+      "id" : 6,
+      "header_type" : "tcp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "udp",
+      "id" : 7,
+      "header_type" : "udp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "sabre",
+      "id" : 8,
+      "header_type" : "sabre_t",
+      "metadata" : false,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [],
+  "errors" : [
+    ["NoError", 0],
+    ["PacketTooShort", 1],
+    ["NoMatch", 2],
+    ["StackOutOfBounds", 3],
+    ["HeaderTooShort", 4],
+    ["ParserTimeout", 5],
+    ["ParserInvalidArgument", 6]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "start",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x11",
+              "mask" : null,
+              "next_state" : "parse_udp"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x06",
+              "mask" : null,
+              "next_state" : "parse_tcp"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_tcp",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "parameters" : [
+                    {
+                      "type" : "header",
+                      "value" : "udp"
+                    }
+                  ],
+                  "op" : "remove_header"
+                }
+              ],
+              "op" : "primitive"
+            },
+            {
+              "parameters" : [
+                {
+                  "parameters" : [
+                    {
+                      "type" : "header",
+                      "value" : "sabre"
+                    }
+                  ],
+                  "op" : "remove_header"
+                }
+              ],
+              "op" : "primitive"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "tcp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_udp",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "parameters" : [
+                    {
+                      "type" : "header",
+                      "value" : "tcp"
+                    }
+                  ],
+                  "op" : "remove_header"
+                }
+              ],
+              "op" : "primitive"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "udp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0d05",
+              "mask" : null,
+              "next_state" : "parse_sabre"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_sabre",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "sabre"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        }
+      ]
+    }
+  ],
+  "parse_vsets" : [],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 604,
+        "column" : 8,
+        "source_fragment" : "MyDeparser"
+      },
+      "order" : ["ethernet", "ipv4", "tcp", "udp", "sabre"],
+      "primitives" : []
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [
+    {
+      "name" : "hash_mem",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 118,
+        "column" : 25,
+        "source_fragment" : "hash_mem"
+      },
+      "size" : 1024,
+      "bitwidth" : 256
+    },
+    {
+      "name" : "segment_id_reg",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 121,
+        "column" : 24,
+        "source_fragment" : "segment_id_reg"
+      },
+      "size" : 1024,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "segment_checksum_reg",
+      "id" : 2,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 122,
+        "column" : 24,
+        "source_fragment" : "segment_checksum_reg"
+      },
+      "size" : 1024,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "segment_data_reg",
+      "id" : 3,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 123,
+        "column" : 25,
+        "source_fragment" : "segment_data_reg"
+      },
+      "size" : 1024,
+      "bitwidth" : 512
+    },
+    {
+      "name" : "current_block_hash",
+      "id" : 4,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 126,
+        "column" : 22,
+        "source_fragment" : "current_block_hash"
+      },
+      "size" : 1,
+      "bitwidth" : 256
+    },
+    {
+      "name" : "block_total_segments",
+      "id" : 5,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 127,
+        "column" : 21,
+        "source_fragment" : "block_total_segments"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "peer_ip_reg",
+      "id" : 6,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 130,
+        "column" : 25,
+        "source_fragment" : "peer_ip_reg"
+      },
+      "size" : 65536,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "peer_port_reg",
+      "id" : 7,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 131,
+        "column" : 25,
+        "source_fragment" : "peer_port_reg"
+      },
+      "size" : 65536,
+      "bitwidth" : 16
+    },
+    {
+      "name" : "peer_state",
+      "id" : 8,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 132,
+        "column" : 24,
+        "source_fragment" : "peer_state"
+      },
+      "size" : 65536,
+      "bitwidth" : 8
+    },
+    {
+      "name" : "last_activity",
+      "id" : 9,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 133,
+        "column" : 25,
+        "source_fragment" : "last_activity"
+      },
+      "size" : 65536,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "request_counter",
+      "id" : 10,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 134,
+        "column" : 25,
+        "source_fragment" : "request_counter"
+      },
+      "size" : 65536,
+      "bitwidth" : 32
+    }
+  ],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "algo" : "crc32",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_2"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_3"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_0",
+      "id" : 1,
+      "algo" : "crc32",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_4"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_5"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_1",
+      "id" : 2,
+      "algo" : "crc32",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_6"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_7"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_2",
+      "id" : 3,
+      "algo" : "crc32",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_8"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_3",
+      "id" : 4,
+      "algo" : "crc32",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_14"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_15"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_4",
+      "id" : 5,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 579,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_5",
+      "id" : 6,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 556,
+        "column" : 8,
+        "source_fragment" : "verify_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [
+    {
+      "id" : 1,
+      "name" : "digest_t",
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 286,
+        "column" : 24,
+        "source_fragment" : "d"
+      },
+      "elements" : [
+        {
+          "type" : "field",
+          "value" : ["tmp_9", "peer_ip"]
+        },
+        {
+          "type" : "field",
+          "value" : ["tmp_9", "peer_port"]
+        }
+      ]
+    }
+  ],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 1,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 204,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.allow",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.handle_syn",
+      "id" : 4,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_2"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 212,
+            "column" : 56,
+            "source_fragment" : "hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 212,
+            "column" : 74,
+            "source_fragment" : "hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "secret_conn_0"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffff"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 212,
+            "column" : 4,
+            "source_fragment" : "hash(secret_conn, HashAlgorithm.crc32, SECRET_KEY, {hdr.ipv4.srcAddr, hdr.udp.srcPort}, MAX)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sabre", "msg_type"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 19,
+            "column" : 23,
+            "source_fragment" : "1; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sabre", "secret"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "secret_conn_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 214,
+            "column" : 4,
+            "source_fragment" : "hdr.sabre.secret = secret_conn"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_ip_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 218,
+            "column" : 4,
+            "source_fragment" : "bit<32> tmp_ip = hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_port_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 219,
+            "column" : 4,
+            "source_fragment" : "bit<16> tmp_port = hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 220,
+            "column" : 4,
+            "source_fragment" : "hdr.ipv4.srcAddr = hdr.ipv4.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_ip_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 221,
+            "column" : 4,
+            "source_fragment" : "hdr.ipv4.dstAddr = tmp_ip"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 222,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.srcPort = hdr.udp.dstPort"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_port_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 223,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.dstPort = tmp_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_mac_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 224,
+            "column" : 4,
+            "source_fragment" : "bit <48> tmp_mac = hdr.ethernet.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 225,
+            "column" : 4,
+            "source_fragment" : "hdr.ethernet.srcAddr = hdr.ethernet.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_mac_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 226,
+            "column" : 4,
+            "source_fragment" : "hdr.ethernet.dstAddr = tmp_mac"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "checksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 227,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.checksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 11,
+            "column" : 26,
+            "source_fragment" : "1; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.handle_ack",
+      "id" : 5,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 238,
+            "column" : 56,
+            "source_fragment" : "hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 238,
+            "column" : 74,
+            "source_fragment" : "hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "secret_conn_1"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffff"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 238,
+            "column" : 4,
+            "source_fragment" : "hash(secret_conn, HashAlgorithm.crc32, SECRET_KEY, {hdr.ipv4.srcAddr, hdr.udp.srcPort}, MAX)"
+          }
+        },
+        {
+          "op" : "_jump_if_zero",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 239,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "!=",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["sabre", "secret"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "secret_conn_1"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x6"
+            }
+          ]
+        },
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 240,
+            "column" : 1,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "_jump",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 239,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x14"
+            }
+          ]
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_6"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 246,
+            "column" : 44,
+            "source_fragment" : "hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_7"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 246,
+            "column" : 62,
+            "source_fragment" : "hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_0"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 246,
+            "column" : 4,
+            "source_fragment" : "hash(index, HashAlgorithm.crc32, ZERO, {hdr.ipv4.srcAddr, hdr.udp.srcPort}, MAX)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "index_0"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0000ffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 247,
+            "column" : 4,
+            "source_fragment" : "index = index % 65536"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "peer_ip_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 248,
+            "column" : 4,
+            "source_fragment" : "peer_ip_reg.write(index, hdr.ipv4.srcAddr)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "peer_port_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 249,
+            "column" : 4,
+            "source_fragment" : "peer_port_reg.write(index, hdr.udp.srcPort)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "peer_state"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_0"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 250,
+            "column" : 4,
+            "source_fragment" : "peer_state.write(index, ESTABILISHED)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "last_activity"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_0"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 251,
+            "column" : 4,
+            "source_fragment" : "last_activity.write(index, 1)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "request_counter"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_0"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 252,
+            "column" : 4,
+            "source_fragment" : "request_counter.write(index, 0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sabre", "msg_type"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x07"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 25,
+            "column" : 21,
+            "source_fragment" : "7; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "checksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 256,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.checksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0a000002"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 13,
+            "column" : 30,
+            "source_fragment" : "0x0A000002; // es. 10.0.0.2 ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0d05"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 8,
+            "column" : 27,
+            "source_fragment" : "3333; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0002"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 10,
+            "column" : 31,
+            "source_fragment" : "2; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.handle_adv",
+      "id" : 6,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_8"]
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "block_hash"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 269,
+            "column" : 44,
+            "source_fragment" : "hdr.sabre.block_hash"
+          }
+        },
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_1"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc_2"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 269,
+            "column" : 4,
+            "source_fragment" : "hash(index, HashAlgorithm.crc32, ZERO, {hdr.sabre.block_hash}, MAX)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "index_1"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 270,
+            "column" : 4,
+            "source_fragment" : "index = index % 1024"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_hash_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "hash_mem"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_1"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 274,
+            "column" : 4,
+            "source_fragment" : "hash_mem.read(tmp_hash, index)"
+          }
+        },
+        {
+          "op" : "_jump_if_zero",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 275,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["sabre", "block_hash"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "tmp_hash_0"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x7"
+            }
+          ]
+        },
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 276,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "_jump",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 275,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0xc"
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "hash_mem"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "block_hash"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 281,
+            "column" : 4,
+            "source_fragment" : "hash_mem.write(index, hdr.sabre.block_hash)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["d_0", "peer_ip"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 284,
+            "column" : 4,
+            "source_fragment" : "d.peer_ip = hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["d_0", "peer_port"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 285,
+            "column" : 4,
+            "source_fragment" : "d.peer_port = hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "assign_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "tmp_9"
+            },
+            {
+              "type" : "header",
+              "value" : "d_0"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 286,
+            "column" : 24,
+            "source_fragment" : "d"
+          }
+        },
+        {
+          "op" : "generate_digest",
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00000001"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 286,
+            "column" : 4,
+            "source_fragment" : "digest<digest_t>(1, d)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.handle_get_seq",
+      "id" : 7,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "curr_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "current_block_hash"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 294,
+            "column" : 4,
+            "source_fragment" : "current_block_hash.read(curr, 0)"
+          }
+        },
+        {
+          "op" : "_jump_if_zero",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 296,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "!=",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["sabre", "block_hash"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "curr_0"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x4"
+            }
+          ]
+        },
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 297,
+            "column" : 1,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "_jump",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 296,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x17"
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "segm_total_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "block_total_segments"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 302,
+            "column" : 4,
+            "source_fragment" : "block_total_segments.read(segm_total, 0)"
+          }
+        },
+        {
+          "op" : "_jump_if_zero",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 304,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">=",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["sabre", "segment_id"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "segm_total_0"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x8"
+            }
+          ]
+        },
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 305,
+            "column" : 1,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "_jump",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 304,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x17"
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "segment_data_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "segment_id"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 312,
+            "column" : 4,
+            "source_fragment" : "segment_data_reg.read(tmp, hdr.sabre.segment_id)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sabre", "msg_type"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x05"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 23,
+            "column" : 19,
+            "source_fragment" : "5; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "checksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 316,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.checksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sabre", "segment_data"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 317,
+            "column" : 4,
+            "source_fragment" : "hdr.sabre.segment_data = tmp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sabre", "segments_num"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "segm_total_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 318,
+            "column" : 4,
+            "source_fragment" : "hdr.sabre.segments_num = segm_total"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_ip_1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 320,
+            "column" : 4,
+            "source_fragment" : "bit<32> tmp_ip = hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_port_1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 321,
+            "column" : 4,
+            "source_fragment" : "bit<16> tmp_port = hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 322,
+            "column" : 4,
+            "source_fragment" : "hdr.ipv4.srcAddr = hdr.ipv4.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_ip_1"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 323,
+            "column" : 4,
+            "source_fragment" : "hdr.ipv4.dstAddr = tmp_ip"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 324,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.srcPort = hdr.udp.dstPort"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_port_1"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 325,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.dstPort = tmp_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_mac_1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 326,
+            "column" : 4,
+            "source_fragment" : "bit <48> tmp_mac = hdr.ethernet.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 327,
+            "column" : 4,
+            "source_fragment" : "hdr.ethernet.srcAddr = hdr.ethernet.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_mac_1"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 328,
+            "column" : 4,
+            "source_fragment" : "hdr.ethernet.dstAddr = tmp_mac"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 11,
+            "column" : 26,
+            "source_fragment" : "1; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.handle_upd",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "block_total_segments"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "segments_num"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 338,
+            "column" : 4,
+            "source_fragment" : "block_total_segments.write(0, hdr.sabre.segments_num)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "current_block_hash"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "block_hash"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 339,
+            "column" : 4,
+            "source_fragment" : "current_block_hash.write(0, hdr.sabre.block_hash)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffffffff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 340,
+            "column" : 4,
+            "source_fragment" : "hdr.ethernet.dstAddr = 48w0xffffffffffff"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "checksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 341,
+            "column" : 4,
+            "source_fragment" : "hdr.udp.checksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 11,
+            "column" : 26,
+            "source_fragment" : "1; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.handle_blk",
+      "id" : 9,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "curr_1"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "current_block_hash"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 352,
+            "column" : 4,
+            "source_fragment" : "current_block_hash.read(curr, 0)"
+          }
+        },
+        {
+          "op" : "_jump_if_zero",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 355,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "!=",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["sabre", "block_hash"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "curr_1"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x4"
+            }
+          ]
+        },
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 356,
+            "column" : 1,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "_jump",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 355,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0xf"
+            }
+          ]
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "segment_id"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 370,
+            "column" : 36,
+            "source_fragment" : "index"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "existing_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "segment_data_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 370,
+            "column" : 4,
+            "source_fragment" : "segment_data_reg.read(existing, index)"
+          }
+        },
+        {
+          "op" : "_jump_if_zero",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 372,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "existing_0"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["sabre", "segment_data"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x9"
+            }
+          ]
+        },
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 373,
+            "column" : 5,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "_jump",
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 372,
+            "column" : 4,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0xf"
+            }
+          ]
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_11"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "segment_id"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 377,
+            "column" : 25,
+            "source_fragment" : "index"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "segment_id_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_11"]
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "segment_id"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 377,
+            "column" : 4,
+            "source_fragment" : "segment_id_reg.write(index, hdr.sabre.segment_id)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_12"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "segment_id"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 378,
+            "column" : 31,
+            "source_fragment" : "index"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "segment_checksum_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_12"]
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "checksum"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 378,
+            "column" : 4,
+            "source_fragment" : "segment_checksum_reg.write(index, hdr.sabre.checksum)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_13"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "segment_id"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000003ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 379,
+            "column" : 27,
+            "source_fragment" : "index"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "segment_data_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_13"]
+            },
+            {
+              "type" : "field",
+              "value" : ["sabre", "segment_data"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 379,
+            "column" : 4,
+            "source_fragment" : "segment_data_reg.write(index, hdr.sabre.segment_data)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act",
+      "id" : 10,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "hasReturned_3"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l434",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.tcp_conn"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 434,
+            "column" : 9,
+            "source_fragment" : "meta.tcp_conn = 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l437",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.udp_conn"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 437,
+            "column" : 8,
+            "source_fragment" : "meta.udp_conn = 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l441",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 441,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_0",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "act_1",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l447",
+      "id" : 16,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "not",
+                      "left" : null,
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "d2b",
+                          "left" : null,
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "tmp_1"]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 447,
+            "column" : 7,
+            "source_fragment" : "hdr.tcp.dstPort == TCP_VALIDATION_PORT && !whitelist.apply().hit"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l447_0",
+      "id" : 17,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : false
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 447,
+            "column" : 7,
+            "source_fragment" : "hdr.tcp.dstPort == TCP_VALIDATION_PORT && !whitelist.apply().hit"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l448",
+      "id" : 18,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0002"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 10,
+            "column" : 31,
+            "source_fragment" : "2; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l454",
+      "id" : 19,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 11,
+            "column" : 26,
+            "source_fragment" : "1; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l457",
+      "id" : 20,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 457,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l489",
+      "id" : 21,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 489,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "hasReturned_3"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 490,
+            "column" : 8,
+            "source_fragment" : "return"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l485",
+      "id" : 22,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "ip_list_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "peer_ip_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_3"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 485,
+            "column" : 6,
+            "source_fragment" : "peer_ip_reg.read(ip_list, index)"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "port_list_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "peer_port_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_3"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 486,
+            "column" : 6,
+            "source_fragment" : "peer_port_reg.read(port_list, index)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l476",
+      "id" : 23,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_14"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 476,
+            "column" : 42,
+            "source_fragment" : "hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_15"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 476,
+            "column" : 60,
+            "source_fragment" : "hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_3"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc_3"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xffffffff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 476,
+            "column" : 2,
+            "source_fragment" : "hash(index, HashAlgorithm.crc32, ZERO, {hdr.ipv4.srcAddr, hdr.udp.srcPort}, MAX)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "index_3"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "index_3"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0000ffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 477,
+            "column" : 2,
+            "source_fragment" : "index = index % 65536"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l499",
+      "id" : 24,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 499,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l504",
+      "id" : 25,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 504,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l509",
+      "id" : 26,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 509,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l471",
+      "id" : 27,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 471,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l429",
+      "id" : 28,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 429,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "codiceP4l425",
+      "id" : 29,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.udp_conn"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 425,
+            "column" : 1,
+            "source_fragment" : "meta.udp_conn = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.tcp_conn"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 426,
+            "column" : 1,
+            "source_fragment" : "meta.tcp_conn = 0"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 195,
+        "column" : 8,
+        "source_fragment" : "MyIngress"
+      },
+      "init_table" : "tbl_act",
+      "tables" : [
+        {
+          "name" : "tbl_act",
+          "id" : 0,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [10],
+          "actions" : ["act"],
+          "base_default_next" : "MyIngress.blacklist",
+          "next_tables" : {
+            "act" : "MyIngress.blacklist"
+          },
+          "default_entry" : {
+            "action_id" : 10,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.blacklist",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 387,
+            "column" : 8,
+            "source_fragment" : "blacklist"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.srcAddr",
+              "target" : ["ipv4", "srcAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1000000,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [2, 0],
+          "actions" : ["MyIngress.drop", "NoAction"],
+          "base_default_next" : "tbl_codiceP4l425",
+          "next_tables" : {
+            "MyIngress.drop" : "tbl_codiceP4l425",
+            "NoAction" : "tbl_codiceP4l425"
+          },
+          "default_entry" : {
+            "action_id" : 0,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l425",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 425,
+            "column" : 15,
+            "source_fragment" : "= 0; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [29],
+          "actions" : ["codiceP4l425"],
+          "base_default_next" : "node_5",
+          "next_tables" : {
+            "codiceP4l425" : "node_5"
+          },
+          "default_entry" : {
+            "action_id" : 29,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l434",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 434,
+            "column" : 23,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [11],
+          "actions" : ["codiceP4l434"],
+          "base_default_next" : "node_10",
+          "next_tables" : {
+            "codiceP4l434" : "node_10"
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l437",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 437,
+            "column" : 22,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [12],
+          "actions" : ["codiceP4l437"],
+          "base_default_next" : "node_10",
+          "next_tables" : {
+            "codiceP4l437" : "node_10"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l441",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 441,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [13],
+          "actions" : ["codiceP4l441"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l441" : null
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.whitelist",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 398,
+            "column" : 8,
+            "source_fragment" : "whitelist"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.srcAddr",
+              "target" : ["ipv4", "srcAddr"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.udp.srcPort",
+              "target" : ["udp", "srcPort"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 100,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [3, 1],
+          "actions" : ["MyIngress.allow", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "__HIT__" : "tbl_act_0",
+            "__MISS__" : "tbl_act_1"
+          },
+          "default_entry" : {
+            "action_id" : 1,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_act_0",
+          "id" : 7,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [14],
+          "actions" : ["act_0"],
+          "base_default_next" : "tbl_codiceP4l447",
+          "next_tables" : {
+            "act_0" : "tbl_codiceP4l447"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_1",
+          "id" : 8,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [15],
+          "actions" : ["act_1"],
+          "base_default_next" : "tbl_codiceP4l447",
+          "next_tables" : {
+            "act_1" : "tbl_codiceP4l447"
+          },
+          "default_entry" : {
+            "action_id" : 15,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l447",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 447,
+            "column" : 7,
+            "source_fragment" : "hdr.tcp.dstPort == TCP_VALIDATION_PORT && !whitelist.apply().hit"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [16],
+          "actions" : ["codiceP4l447"],
+          "base_default_next" : "node_19",
+          "next_tables" : {
+            "codiceP4l447" : "node_19"
+          },
+          "default_entry" : {
+            "action_id" : 16,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l447_0",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 447,
+            "column" : 7,
+            "source_fragment" : "hdr.tcp.dstPort == TCP_VALIDATION_PORT && !whitelist.apply().hit"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [17],
+          "actions" : ["codiceP4l447_0"],
+          "base_default_next" : "node_19",
+          "next_tables" : {
+            "codiceP4l447_0" : "node_19"
+          },
+          "default_entry" : {
+            "action_id" : 17,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l448",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 448,
+            "column" : 33,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [18],
+          "actions" : ["codiceP4l448"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l448" : null
+          },
+          "default_entry" : {
+            "action_id" : 18,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l454",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 454,
+            "column" : 40,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [19],
+          "actions" : ["codiceP4l454"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l454" : null
+          },
+          "default_entry" : {
+            "action_id" : 19,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l457",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 457,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [20],
+          "actions" : ["codiceP4l457"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l457" : null
+          },
+          "default_entry" : {
+            "action_id" : 20,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l476",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 476,
+            "column" : 2,
+            "source_fragment" : "hash(index, HashAlgorithm.crc32, ZERO, {hdr.ipv4.srcAddr, hdr.udp.srcPort}, MAX); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [23],
+          "actions" : ["codiceP4l476"],
+          "base_default_next" : "node_27",
+          "next_tables" : {
+            "codiceP4l476" : "node_27"
+          },
+          "default_entry" : {
+            "action_id" : 23,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l485",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 485,
+            "column" : 6,
+            "source_fragment" : "peer_ip_reg.read(ip_list, index); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [22],
+          "actions" : ["codiceP4l485"],
+          "base_default_next" : "node_29",
+          "next_tables" : {
+            "codiceP4l485" : "node_29"
+          },
+          "default_entry" : {
+            "action_id" : 22,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l489",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 489,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata); ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [21],
+          "actions" : ["codiceP4l489"],
+          "base_default_next" : "node_31",
+          "next_tables" : {
+            "codiceP4l489" : "node_31"
+          },
+          "default_entry" : {
+            "action_id" : 21,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l499",
+          "id" : 17,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 499,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [24],
+          "actions" : ["codiceP4l499"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l499" : null
+          },
+          "default_entry" : {
+            "action_id" : 24,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l504",
+          "id" : 18,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 504,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [25],
+          "actions" : ["codiceP4l504"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l504" : null
+          },
+          "default_entry" : {
+            "action_id" : 25,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l509",
+          "id" : 19,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 509,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [26],
+          "actions" : ["codiceP4l509"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l509" : null
+          },
+          "default_entry" : {
+            "action_id" : 26,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_handle_syn",
+          "id" : 20,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 520,
+            "column" : 7,
+            "source_fragment" : "handle_syn()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [4],
+          "actions" : ["MyIngress.handle_syn"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.handle_syn" : null
+          },
+          "default_entry" : {
+            "action_id" : 4,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_handle_ack",
+          "id" : 21,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 522,
+            "column" : 7,
+            "source_fragment" : "handle_ack()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [5],
+          "actions" : ["MyIngress.handle_ack"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.handle_ack" : null
+          },
+          "default_entry" : {
+            "action_id" : 5,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_handle_adv",
+          "id" : 22,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 524,
+            "column" : 7,
+            "source_fragment" : "handle_adv()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [6],
+          "actions" : ["MyIngress.handle_adv"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.handle_adv" : null
+          },
+          "default_entry" : {
+            "action_id" : 6,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_handle_get_seq",
+          "id" : 23,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 526,
+            "column" : 7,
+            "source_fragment" : "handle_get_seq()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [7],
+          "actions" : ["MyIngress.handle_get_seq"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.handle_get_seq" : null
+          },
+          "default_entry" : {
+            "action_id" : 7,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_handle_blk",
+          "id" : 24,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 528,
+            "column" : 7,
+            "source_fragment" : "handle_blk()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [9],
+          "actions" : ["MyIngress.handle_blk"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.handle_blk" : null
+          },
+          "default_entry" : {
+            "action_id" : 9,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_handle_upd",
+          "id" : 25,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 530,
+            "column" : 7,
+            "source_fragment" : "handle_upd()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [8],
+          "actions" : ["MyIngress.handle_upd"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.handle_upd" : null
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l471",
+          "id" : 26,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 471,
+            "column" : 6,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [27],
+          "actions" : ["codiceP4l471"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l471" : null
+          },
+          "default_entry" : {
+            "action_id" : 27,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_codiceP4l429",
+          "id" : 27,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 429,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [28],
+          "actions" : ["codiceP4l429"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "codiceP4l429" : null
+          },
+          "default_entry" : {
+            "action_id" : 28,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_5",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 428,
+            "column" : 6,
+            "source_fragment" : "hdr.ipv4.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "node_6",
+          "false_next" : "tbl_codiceP4l429"
+        },
+        {
+          "name" : "node_6",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 433,
+            "column" : 5,
+            "source_fragment" : "hdr.ipv4.protocol == 6"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "protocol"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x06"
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l434",
+          "false_next" : "node_8"
+        },
+        {
+          "name" : "node_8",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 436,
+            "column" : 10,
+            "source_fragment" : "hdr.ipv4.protocol == 17"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "protocol"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x11"
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l437",
+          "false_next" : "node_10"
+        },
+        {
+          "name" : "node_10",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 440,
+            "column" : 5,
+            "source_fragment" : "meta.tcp_conn != 1 && meta.udp_conn != 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata.tcp_conn"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata.udp_conn"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l441",
+          "false_next" : "node_12"
+        },
+        {
+          "name" : "node_12",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 445,
+            "column" : 5,
+            "source_fragment" : "meta.tcp_conn == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata.tcp_conn"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "node_13",
+          "false_next" : "node_24"
+        },
+        {
+          "name" : "node_13",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 447,
+            "column" : 7,
+            "source_fragment" : "hdr.tcp.dstPort == TCP_VALIDATION_PORT"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["tcp", "dstPort"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x1388"
+              }
+            }
+          },
+          "true_next" : "MyIngress.whitelist",
+          "false_next" : "tbl_codiceP4l447_0"
+        },
+        {
+          "name" : "node_19",
+          "id" : 6,
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["scalars", "tmp_0"]
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l448",
+          "false_next" : "node_21"
+        },
+        {
+          "name" : "node_21",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 453,
+            "column" : 16,
+            "source_fragment" : "hdr.tcp.srcPort == TCP_VALIDATION_PORT"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["tcp", "srcPort"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x1388"
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l454",
+          "false_next" : "tbl_codiceP4l457"
+        },
+        {
+          "name" : "node_24",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 463,
+            "column" : 5,
+            "source_fragment" : "meta.udp_conn == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata.udp_conn"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "node_25"
+        },
+        {
+          "name" : "node_25",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 470,
+            "column" : 18,
+            "source_fragment" : "hdr.sabre.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["sabre", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l476",
+          "false_next" : "tbl_codiceP4l471"
+        },
+        {
+          "name" : "node_27",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 484,
+            "column" : 6,
+            "source_fragment" : "msg != SYN && msg != ACK"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "msg_type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "msg_type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x02"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l485",
+          "false_next" : "node_31"
+        },
+        {
+          "name" : "node_29",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 488,
+            "column" : 10,
+            "source_fragment" : "ip_list != hdr.ipv4.srcAddr || port_list != hdr.udp.srcPort"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "or",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "ip_list_0"]
+                  },
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["ipv4", "srcAddr"]
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "port_list_0"]
+                  },
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["udp", "srcPort"]
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l489",
+          "false_next" : "node_31"
+        },
+        {
+          "name" : "node_31",
+          "id" : 12,
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["scalars", "hasReturned_3"]
+              }
+            }
+          },
+          "true_next" : null,
+          "false_next" : "node_32"
+        },
+        {
+          "name" : "node_32",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 498,
+            "column" : 6,
+            "source_fragment" : "msg == SYN_ACK || msg == NCONN"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "or",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "msg_type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "msg_type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x07"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l499",
+          "false_next" : "node_34"
+        },
+        {
+          "name" : "node_34",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 503,
+            "column" : 6,
+            "source_fragment" : "msg == UPD && standard_metadata.ingress_port != CONTROLLER_PORT"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "msg_type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x06"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "ingress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0002"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l504",
+          "false_next" : "node_36"
+        },
+        {
+          "name" : "node_36",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 508,
+            "column" : 6,
+            "source_fragment" : "msg == BLK && standard_metadata.ingress_port != CONTROLLER_PORT"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["sabre", "msg_type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x05"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "ingress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0002"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_codiceP4l509",
+          "false_next" : "node_38"
+        },
+        {
+          "name" : "node_38",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 519,
+            "column" : 17,
+            "source_fragment" : "msg == SYN"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["sabre", "msg_type"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00"
+              }
+            }
+          },
+          "true_next" : "tbl_handle_syn",
+          "false_next" : "node_40"
+        },
+        {
+          "name" : "node_40",
+          "id" : 17,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 521,
+            "column" : 13,
+            "source_fragment" : "msg == ACK"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["sabre", "msg_type"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x02"
+              }
+            }
+          },
+          "true_next" : "tbl_handle_ack",
+          "false_next" : "node_42"
+        },
+        {
+          "name" : "node_42",
+          "id" : 18,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 523,
+            "column" : 13,
+            "source_fragment" : "msg == ADV"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["sabre", "msg_type"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x03"
+              }
+            }
+          },
+          "true_next" : "tbl_handle_adv",
+          "false_next" : "node_44"
+        },
+        {
+          "name" : "node_44",
+          "id" : 19,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 525,
+            "column" : 13,
+            "source_fragment" : "msg == GET_SEQ"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["sabre", "msg_type"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x04"
+              }
+            }
+          },
+          "true_next" : "tbl_handle_get_seq",
+          "false_next" : "node_46"
+        },
+        {
+          "name" : "node_46",
+          "id" : 20,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 527,
+            "column" : 13,
+            "source_fragment" : "msg == BLK"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["sabre", "msg_type"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x05"
+              }
+            }
+          },
+          "true_next" : "tbl_handle_blk",
+          "false_next" : "node_48"
+        },
+        {
+          "name" : "node_48",
+          "id" : 21,
+          "source_info" : {
+            "filename" : "codiceP4.p4",
+            "line" : 529,
+            "column" : 13,
+            "source_fragment" : "msg == UPD"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["sabre", "msg_type"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x06"
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "tbl_handle_upd"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 544,
+        "column" : 8,
+        "source_fragment" : "MyEgress"
+      },
+      "init_table" : null,
+      "tables" : [],
+      "action_profiles" : [],
+      "conditionals" : []
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 579,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc_4",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    },
+    {
+      "name" : "cksum_0",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "codiceP4.p4",
+        "line" : 556,
+        "column" : 8,
+        "source_fragment" : "verify_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc_5",
+      "verify" : true,
+      "update" : false,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.egress_global_timestamp",
+      ["standard_metadata", "egress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ],
+    [
+      "intrinsic_metadata.priority",
+      ["standard_metadata", "priority"]
+    ]
+  ],
+  "program" : "./codiceP4.p4i",
+  "__meta__" : {
+    "version" : [2, 23],
+    "compiler" : "https://github.com/p4lang/p4c"
+  }
+}

@@ -1,0 +1,326 @@
+# proto-file: p4/config/v1/p4info.proto
+# proto-message: p4.config.v1.P4Info
+
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 39559189
+    name: "MyIngress.blacklist"
+    alias: "blacklist"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.srcAddr"
+    bitwidth: 32
+    match_type: EXACT
+  }
+  action_refs {
+    id: 25652968
+  }
+  action_refs {
+    id: 21257015
+  }
+  initial_default_action {
+    action_id: 21257015
+  }
+  size: 1000000
+}
+tables {
+  preamble {
+    id: 35255697
+    name: "MyIngress.whitelist"
+    alias: "whitelist"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.srcAddr"
+    bitwidth: 32
+    match_type: EXACT
+  }
+  match_fields {
+    id: 2
+    name: "hdr.udp.srcPort"
+    bitwidth: 16
+    match_type: EXACT
+  }
+  action_refs {
+    id: 17724422
+  }
+  action_refs {
+    id: 21257015
+  }
+  initial_default_action {
+    action_id: 21257015
+  }
+  size: 100
+}
+actions {
+  preamble {
+    id: 21257015
+    name: "NoAction"
+    alias: "NoAction"
+    annotations: "@noWarn(\"unused\")"
+  }
+}
+actions {
+  preamble {
+    id: 25652968
+    name: "MyIngress.drop"
+    alias: "drop"
+  }
+}
+actions {
+  preamble {
+    id: 17724422
+    name: "MyIngress.allow"
+    alias: "allow"
+  }
+}
+actions {
+  preamble {
+    id: 17952970
+    name: "MyIngress.handle_syn"
+    alias: "handle_syn"
+  }
+}
+actions {
+  preamble {
+    id: 17341660
+    name: "MyIngress.handle_ack"
+    alias: "handle_ack"
+  }
+}
+actions {
+  preamble {
+    id: 21822672
+    name: "MyIngress.handle_adv"
+    alias: "handle_adv"
+  }
+}
+actions {
+  preamble {
+    id: 31181238
+    name: "MyIngress.handle_get_seq"
+    alias: "handle_get_seq"
+  }
+}
+actions {
+  preamble {
+    id: 18014060
+    name: "MyIngress.handle_upd"
+    alias: "handle_upd"
+  }
+}
+actions {
+  preamble {
+    id: 21377271
+    name: "MyIngress.handle_blk"
+    alias: "handle_blk"
+  }
+}
+registers {
+  preamble {
+    id: 379279929
+    name: "hash_mem"
+    alias: "hash_mem"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 256
+      }
+    }
+  }
+  size: 1024
+}
+registers {
+  preamble {
+    id: 378779069
+    name: "segment_id_reg"
+    alias: "segment_id_reg"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1024
+}
+registers {
+  preamble {
+    id: 384415339
+    name: "segment_checksum_reg"
+    alias: "segment_checksum_reg"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1024
+}
+registers {
+  preamble {
+    id: 382169049
+    name: "segment_data_reg"
+    alias: "segment_data_reg"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 512
+      }
+    }
+  }
+  size: 1024
+}
+registers {
+  preamble {
+    id: 381050819
+    name: "current_block_hash"
+    alias: "current_block_hash"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 256
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 382801115
+    name: "block_total_segments"
+    alias: "block_total_segments"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 1
+}
+registers {
+  preamble {
+    id: 370052377
+    name: "peer_ip_reg"
+    alias: "peer_ip_reg"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 65536
+}
+registers {
+  preamble {
+    id: 373445495
+    name: "peer_port_reg"
+    alias: "peer_port_reg"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 16
+      }
+    }
+  }
+  size: 65536
+}
+registers {
+  preamble {
+    id: 377480201
+    name: "peer_state"
+    alias: "peer_state"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 8
+      }
+    }
+  }
+  size: 65536
+}
+registers {
+  preamble {
+    id: 374050876
+    name: "last_activity"
+    alias: "last_activity"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 65536
+}
+registers {
+  preamble {
+    id: 383082247
+    name: "request_counter"
+    alias: "request_counter"
+  }
+  type_spec {
+    bitstring {
+      bit {
+        bitwidth: 32
+      }
+    }
+  }
+  size: 65536
+}
+digests {
+  preamble {
+    id: 389049336
+    name: "digest_t"
+    alias: "digest_t"
+  }
+  type_spec {
+    struct {
+      name: "digest_t"
+    }
+  }
+}
+type_info {
+  structs {
+    key: "digest_t"
+    value {
+      members {
+        name: "peer_ip"
+        type_spec {
+          bitstring {
+            bit {
+              bitwidth: 32
+            }
+          }
+        }
+      }
+      members {
+        name: "peer_port"
+        type_spec {
+          bitstring {
+            bit {
+              bitwidth: 16
+            }
+          }
+        }
+      }
+    }
+  }
+}
